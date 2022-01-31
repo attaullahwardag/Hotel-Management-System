@@ -23,4 +23,5 @@ Route::get('admin', function () {
 });
 
 //RoomType Route
+Route::get('admin/roomtype/{id}/delete',[RoomtypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomtypeController::class);

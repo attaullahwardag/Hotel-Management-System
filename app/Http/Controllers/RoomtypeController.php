@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RoomType;
 
 class RoomtypeController extends Controller
 {
@@ -13,8 +14,9 @@ class RoomtypeController extends Controller
      */
     public function index()
     {
+        $data = RoomType::all();
         //returning view
-        return view('roomtype.index');
+        return view('roomtype.index',['data'=> $data]);
     }
 
     /**
@@ -36,7 +38,12 @@ class RoomtypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Storing New Room Type
+        $data  = new RoomType;
+        $data->title = $request->title;
+        $data->detail = $request->detail;
+        $data->save();
+        return redirect('admin/roomtype/create')->with('success','Data has been added.');
     }
 
     /**
@@ -47,7 +54,10 @@ class RoomtypeController extends Controller
      */
     public function show($id)
     {
-        //
+        //Showing single item by id
+        $data = RoomType::find($id);
+        //returning view
+        return view('roomtype.show',['data'=> $data]);
     }
 
     /**
@@ -58,7 +68,10 @@ class RoomtypeController extends Controller
      */
     public function edit($id)
     {
-        //
+       //Showing single item by id
+       $data = RoomType::find($id);
+       //returning view
+       return view('roomtype.edit',['data'=> $data]); 
     }
 
     /**
@@ -71,6 +84,11 @@ class RoomtypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data  = RoomType::find($id);
+        $data->title = $request->title;
+        $data->detail = $request->detail;
+        $data->save();
+        return redirect('admin/roomtype/'.$id.'/edit')->with('success','Data has been Successfuly updated.');
     }
 
     /**
@@ -82,5 +100,8 @@ class RoomtypeController extends Controller
     public function destroy($id)
     {
         //
+        RoomType::where('id',$id)->delete();
+        return redirect('admin/roomtype')->with('success','Data has been Successfuly deleted.');
+
     }
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>HMS - 1</title>
+    <title>AkTech HMS - 1</title>
     <!-- Custom fonts for this template-->
     <link href="{{ asset('/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -28,7 +28,7 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-hotel"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">HMS <sup>1</sup></div>
+                <div class="sidebar-brand-text mx-3"> AkTech <sup>HMS</sup></div>
             </a>
 
             <!-- Divider -->
@@ -359,7 +359,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; AkTech HMS-1 2020</span>
                     </div>
                 </div>
             </footer>

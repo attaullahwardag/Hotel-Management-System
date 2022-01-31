@@ -4,7 +4,6 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Roomtype</h1>
    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -14,33 +13,42 @@
             </h6>
         </div>
         <div class="card-body">
+            @if (Session::has('success'))
+                <p class="text-success"> {{ Session('success') }}</p>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Room Title</th>
+                            <th>Title</th>
+                            <th>Details</th>
                             <th>Action</th>
-                            
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>#</th>
-                            <th>Room Title</th>
+                            <th>Title</th>
+                            <th>Details</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>
-                               <a href="" class="btn btn-info btn-sm"> <i class="fa fa-eye"></i></a>
-                               <a href="" class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> </a>
-                               <a href="" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
-                            </td>
-                        </tr>
+                        @if ($data)
+                            @foreach ($data as $d )
+                                <tr>
+                                    <td>{{ $d->id }}</td>
+                                    <td>{{ $d->title }}</td>
+                                    <td>{{ $d->detail }}</td>
+                                    <td>
+                                        <a href="{{ url('admin/roomtype/'.$d->id) }}" class="btn btn-info btn-sm"> <i class="fa fa-eye"></i></a>
+                                        <a href="{{ url('admin/roomtype/'.$d->id).'/edit' }}" class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> </a>
+                                        <a href="{{ url('admin/roomtype/'.$d->id).'/delete'  }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

@@ -18,16 +18,17 @@
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
             <div class="table-responsive">
-                <form method="POST" action="{{ url('admin/roomtype') }}">
+                <form method="POST" action="{{ url('admin/roomtype/'.$data->id) }}">
                     @csrf
+                    @method('put')
                     <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Title</th>
-                            <td> <input type="text" name="title" id="" class="form-control"> </td>
+                            <td> <input type="text" value="{{ $data->title }}" name="title" id="" class="form-control"> </td>
                         </tr>
                         <tr>
                             <th>Details</th>
-                            <td><textarea name="detail" id="" cols="30" rows="10" class="form-control"></textarea></td>
+                            <td><textarea name="detail" id="" cols="30" rows="10" class="form-control">{{ $data->detail }}</textarea></td>
                         </tr>
                         <tr>
                             <th>Action</th>
