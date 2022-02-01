@@ -16,25 +16,21 @@
             @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                    <thead class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Photo</th>
-                            <th>Phone#</th>
-                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    <tfoot class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Photo</th>
-                            <th>Mobile#</th>
-                            <th>Address</th>
+                            <th>Mobile</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>
@@ -45,10 +41,7 @@
                                     <td>{{ $d->id }}</td>
                                     <td>{{ $d->full_name }}</td>
                                     <td>{{ $d->email }}</td>
-                                    <td>{{ $d->photo }}</td>
-                                    <td>{{ $d->mobile }}</td>
-                                    <td>{{ $d->address }}</td>
-
+                                    <td> {{ $d->mobile }}</td>
                                     <td>
                                         <a href="{{ url('admin/customer/'.$d->id) }}" class="btn btn-info btn-sm"> <i class="fa fa-eye"></i></a>
                                         <a href="{{ url('admin/customer/'.$d->id).'/edit' }}" class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> </a>

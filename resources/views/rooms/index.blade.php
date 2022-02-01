@@ -18,7 +18,7 @@
             @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                    <thead class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Title</th>
@@ -27,7 +27,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    <tfoot class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Title</th>

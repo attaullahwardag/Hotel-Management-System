@@ -17,6 +17,7 @@
                         <tr>
                             <th>#</th>
                             <th> Title</th>  
+                            <th> price</th>  
                             <th> Details </th>
                         </tr>
                     </thead>
@@ -24,6 +25,7 @@
                         <tr>
                             <td>{{ $data->id }}</td>
                             <td> {{ $data->title }} </td>
+                            <td> {{ $data->price }} </td>
                             <td>{{ $data->detail }}</td>
                         </tr>
                     </tbody>

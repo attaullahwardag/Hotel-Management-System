@@ -7,6 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>AkTech HMS - 1</title>
+    @if (!Session::has('adminData'))
+        <script text="text/javascript">
+            window.location.href="{{ url('admin/login') }}";
+        </script>
+        
+    @endif
     <!-- Custom fonts for this template-->
     <link href="{{ asset('/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -350,7 +356,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ url('admin/logout') }}">Logout</a>
                 </div>
             </div>
         </div>

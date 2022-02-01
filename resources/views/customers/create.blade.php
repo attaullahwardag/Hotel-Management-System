@@ -19,15 +19,15 @@
                     @csrf
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <tr>
-                            <th>Full Name</th>
+                            <th>Full Name <sup>*</sup> </th>
                             <td> <input type="text" name="full_name" id="" class="form-control" required> </td>
                         </tr>
                         <tr>
-                            <th>Email</th>
+                            <th>Email <sup>*</sup>  </th>
                             <td> <input type="email" name="email" class="form-control" required></td>
                         </tr>
                         <tr>
-                            <th>Mobile</th>
+                            <th>Mobile <sup>*</sup> </th>
                             <td> <input type="text" name="mobile" class="form-control" required></td>
                         </tr>
                         <tr>

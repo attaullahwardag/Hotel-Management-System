@@ -23,8 +23,12 @@
                             <td> <input type="text" name="title" id="" class="form-control"> </td>
                         </tr>
                         <tr>
+                            <th>Price</th>
+                            <td> <input type="number" name="price" id="" class="form-control"> </td>
+                        </tr>
+                        <tr>
                             <th>Details</th>
-                            <td><textarea name="detail" id="" cols="30" rows="10" class="form-control"></textarea></td>
+                            <td><textarea name="detail" id="" cols="30" rows="5" class="form-control"></textarea></td>
                         </tr>
                         <tr>
                             <th>Action</th>
