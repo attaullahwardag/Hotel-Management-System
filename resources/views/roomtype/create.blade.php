@@ -2,9 +2,6 @@
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Roomtype</h1>
    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -17,10 +14,10 @@
             @if (Session::has('success'))
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
-            <div class="table-responsive">
+            <div class="table-responsive ">
                 <form method="POST" action="{{ url('admin/roomtype') }}">
                     @csrf
-                    <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Title</th>
                             <td> <input type="text" name="title" id="" class="form-control"> </td>

@@ -2,30 +2,35 @@
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
-   
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Room Types
-                <a href="{{ url('admin/roomtype') }}" class="btn btn-success float-right">View All</a>
+            <h6 class="m-0 font-weight-bold text-primary">Rooms
+                <a href="{{ url('admin/rooms') }}" class="btn btn-success float-right">View All</a>
             </h6>
         </div>
         <div class="card-body">
             @if (Session::has('success'))
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
-            <div class="table-responsive ">
-                <form method="POST" action="{{ url('admin/roomtype/'.$data->id) }}">
+            <div class="table-responsive">
+                <form method="POST" action="{{ url('admin/rooms') }}">
                     @csrf
-                    @method('put')
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <tr>
-                            <th>Title</th>
-                            <td> <input type="text" value="{{ $data->title }}" name="title" id="" class="form-control"> </td>
+                            <th>Title: </th>
+                            <td> <input type="text" name="title" id="" class="form-control"> </td>
                         </tr>
                         <tr>
-                            <th>Details</th>
-                            <td><textarea name="detail" id="" cols="30" rows="10" class="form-control">{{ $data->detail }}</textarea></td>
+                            <th>Room Type: </th>
+                            <td>
+                                <select name="roomtype" id="" class="form-control">
+                                        <option value="0">--- Select ---</option>
+                                    @foreach ( $data as $d )
+                                        <option value="{{ $d->id }}">{{ $d->title }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <th>Action</th>
