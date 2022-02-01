@@ -28,8 +28,23 @@
                             <td> <input type="number" value="{{ $data->price }}" name="price" id="" class="form-control"> </td>
                         </tr>
                         <tr>
+                            <th>Gallery</th>
+                            <td>
+                                <table>
+                                    <tr>
+                                        @foreach ($data->roomtypeimages as $img )
+                                            <td class="imgcol{{ $img->id }}"> 
+                                                <img width="80px" src="{{ asset('storage/'.$img->img_src) }}" alt="" srcset="">
+                                                <p><button type="button" onclick="return confirm('Are you sure you want to delete the image?')" class="btn btn-danger btn-sm mt-1 w-100 delete-image" data-image-id="{{ $img->id }}"><i class="fas fa-trash"></i></button></p>
+                                            </td>
+                                        @endforeach
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>Details</th>
-                            <td><textarea name="detail" id="" cols="30" rows="10" class="form-control">{{ $data->detail }}</textarea></td>
+                            <td><textarea name="detail" id="" cols="30" rows="5" class="form-control">{{ $data->detail }}</textarea></td>
                         </tr>
                         <tr>
                             <th>Action</th>
@@ -42,4 +57,26 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete-image").on('click', function(){
+            var img_id = $(this).attr('data-image-id');
+            var btn = $(this);
+            $.ajax({
+                url:"{{ url('admin/roomtypeimage/delete') }}/"+img_id,
+                dataType:'json',
+                beforeSend:function(){
+                    btn.addClass('disabled');
+                },
+                success:function(res){
+                    console.log(res);
+                    $(".imgcol"+img_id).remove();
+                    btn.removeClass('disabled');
+                }
+            });
+        });
+    });
+</script>
+@endsection
 @endsection

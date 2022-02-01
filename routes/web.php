@@ -32,6 +32,8 @@ Route::get('admin', function () {
 //RoomType Route
 Route::get('admin/roomtype/{id}/delete',[RoomtypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomtypeController::class);
+//Delete roomtype images
+Route::get('admin/roomtypeimage/delete/{id}',[RoomtypeController::class,'destroy_image']);
 
 //Room Route
 Route::get('admin/rooms/{id}/delete',[RoomController::class,'destroy']);
