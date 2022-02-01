@@ -79,12 +79,12 @@
             </div>
             <!-- Nav Item - Roomtype Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link @if(!request()->is('admin/customer*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapseone"
+                <a class="nav-link @if(!request()->is('admin/customer*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsecustomer"
                     aria-expanded="true" aria-controls="collapseone">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Customer</span>
                 </a>
-                <div id="collapseone" class="collapse @if(request()->is('admin/customer*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapsecustomer" class="collapse @if(request()->is('admin/customer*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ url('admin/customer/create') }}">Add New</a>
                         <a class="collapse-item" href="{{ url('admin/customer') }}">View All</a>
@@ -103,10 +103,8 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
