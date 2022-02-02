@@ -108,6 +108,19 @@ class RoomtypeController extends Controller
         $data->price = $request->price;
         $data->detail = $request->detail;
         $data->save();
+        if($request->hasFile('imgs')){
+            foreach ($request->file('imgs') as $img) {
+                $imgPath = $img->store('public/images');
+                $imaPath = explode('/',$imgPath);
+                $imgPathfinal = $imaPath[1].'/'.$imaPath[2];
+    
+                $imgData = new Roomtypeimage;
+                $imgData->room_type_id = $data->id;
+                $imgData->img_src = $imgPathfinal;
+                $imgData->img_alt = $request->title;
+                $imgData->save();
+            }
+        }
         return redirect('admin/roomtype/'.$id.'/edit')->with('success','Data has been Successfuly updated.');
     }
 

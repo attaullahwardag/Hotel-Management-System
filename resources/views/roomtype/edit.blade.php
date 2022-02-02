@@ -15,27 +15,28 @@
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
             <div class="table-responsive ">
-                <form method="POST" action="{{ url('admin/roomtype/'.$data->id) }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ url('admin/roomtype/'.$data->id) }}">
                     @csrf
                     @method('put')
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
-                            <th>Title</th>
+                            <th>Room Title:</th>
                             <td> <input type="text" value="{{ $data->title }}" name="title" id="" class="form-control"> </td>
                         </tr>
                         <tr>
-                            <th>Price</th>
+                            <th>Price:</th>
                             <td> <input type="number" value="{{ $data->price }}" name="price" id="" class="form-control"> </td>
                         </tr>
                         <tr>
-                            <th>Gallery</th>
+                            <th>Gallery:</th>
                             <td>
                                 <table>
                                     <tr>
+                                        <input class="my-2" type="file" multiple name="imgs[]" id="">
                                         @foreach ($data->roomtypeimages as $img )
                                             <td class="imgcol{{ $img->id }}"> 
                                                 <img width="80px" src="{{ asset('storage/'.$img->img_src) }}" alt="" srcset="">
-                                                <p><button type="button" onclick="return confirm('Are you sure you want to delete the image?')" class="btn btn-danger btn-sm mt-1 w-100 delete-image" data-image-id="{{ $img->id }}"><i class="fas fa-trash"></i></button></p>
+                                                <p><button type="button" onclick="return confirm('Are you sure you want to delete the image?')" class="btn btn-danger btn-sm w-100 mt-1 delete-image" data-image-id="{{ $img->id }}"><i class="fas fa-trash"></i></button></p>
                                             </td>
                                         @endforeach
                                     </tr>
@@ -43,12 +44,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Details</th>
+                            <th>Details:</th>
                             <td><textarea name="detail" id="" cols="30" rows="5" class="form-control">{{ $data->detail }}</textarea></td>
                         </tr>
                         <tr>
-                            <th>Action</th>
-                            <td><input type="submit" value="Submit" class="form-control btn btn-primary"></td>
+                            <th>Action:</th>
+                            <td><input type="submit" value="Save Changes" class="form-control btn btn-primary w-25"></td>
                         </tr>
                     </table>
                 </form>
