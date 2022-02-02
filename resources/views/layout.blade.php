@@ -47,7 +47,7 @@
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                Masters
+                Rooms
             </div>
             <!-- Nav Item - Roomtype Collapse Menu -->
             <li class="nav-item">
@@ -98,6 +98,27 @@
                 </div>
             </li>
             <!-- Divider -->
+             <!-- Divider -->
+             <hr class="sidebar-divider">
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                 Department
+             </div>
+             <!-- Nav Item - Roomtype Collapse Menu -->
+             <li class="nav-item">
+                 <a class="nav-link @if(!request()->is('admin/department*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsedepartment"
+                     aria-expanded="true" aria-controls="collapseone">
+                     <i class="fas fa-fw fa-users"></i>
+                     <span>Department</span>
+                 </a>
+                 <div id="collapsedepartment" class="collapse @if(request()->is('admin/department*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                         <a class="collapse-item" href="{{ url('admin/department/create') }}">Add New</a>
+                         <a class="collapse-item" href="{{ url('admin/department') }}">View All</a>
+                     </div>
+                 </div>
+             </li>
+             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
 
 class StaffDepartment extends Controller
 {
@@ -14,6 +15,8 @@ class StaffDepartment extends Controller
     public function index()
     {
         //
+        $data = Department::all();
+        return view('department.index',['data'=> $data]);
     }
 
     /**
@@ -24,6 +27,7 @@ class StaffDepartment extends Controller
     public function create()
     {
         //
+        return view ('department.create');
     }
 
     /**
@@ -35,6 +39,11 @@ class StaffDepartment extends Controller
     public function store(Request $request)
     {
         //
+        $data = new Department;
+        $data->title = $request->title;
+        $data->detail = $request->detail;
+        $data->save();
+        return redirect('admin/department/create')->with('success','Department Successfuly added.');
     }
 
     /**
@@ -46,6 +55,8 @@ class StaffDepartment extends Controller
     public function show($id)
     {
         //
+        $data = Department::find($id);
+        return view('department.show',['data'=>$data]);
     }
 
     /**
@@ -57,6 +68,8 @@ class StaffDepartment extends Controller
     public function edit($id)
     {
         //
+        $data = Department::find($id);
+        return view('department.edit',['data'=>$data]);
     }
 
     /**
@@ -69,6 +82,11 @@ class StaffDepartment extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Department::find($id);
+        $data->title = $request->title;
+        $data->detail = $request->detail;
+        $data->save();
+        return redirect('admin/department/'.$id.'/edit')->with('success','Department Record successfuly updated.');
     }
 
     /**
@@ -79,6 +97,7 @@ class StaffDepartment extends Controller
      */
     public function destroy($id)
     {
-        //
+        Department::where('id', $id)->delete();
+        return redirect ('admin/department')->with('success','Department successfuly deleted.');
     }
 }
