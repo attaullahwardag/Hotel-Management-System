@@ -45,10 +45,6 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Rooms
-            </div>
             <!-- Nav Item - Roomtype Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/roomtype*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapseone"
@@ -77,12 +73,6 @@
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Customer
-            </div>
             <!-- Nav Item - Roomtype Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/customer*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsecustomer"
@@ -97,13 +87,6 @@
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-             <!-- Divider -->
-             <hr class="sidebar-divider">
-             <!-- Heading -->
-             <div class="sidebar-heading">
-                 Department
-             </div>
              <!-- Nav Item - Roomtype Collapse Menu -->
              <li class="nav-item">
                  <a class="nav-link @if(!request()->is('admin/department*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsedepartment"
@@ -118,6 +101,20 @@
                      </div>
                  </div>
              </li>
+             <!-- Nav Item - Roomtype Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsestaff"
+                    aria-expanded="true" aria-controls="collapseone">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Staff</span>
+                </a>
+                <div id="collapsestaff" class="collapse @if(request()->is('admin/staff*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ url('admin/staff/create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ url('admin/staff') }}">View All</a>
+                    </div>
+                </div>
+            </li>
              <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

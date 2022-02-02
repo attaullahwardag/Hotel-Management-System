@@ -17,7 +17,7 @@
             <div class="table-responsive ">
                 <form method="POST" enctype="multipart/form-data" action="{{ url('admin/customer') }}">
                     @csrf
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Full Name <sup>*</sup> </th>
                             <td> <input type="text" name="full_name" id="" class="form-control" required> </td>
@@ -40,7 +40,7 @@
                         </tr>
                         <tr>
                             <th>Action</th>
-                            <td><input type="submit" value="Submit" class="form-control btn btn-primary"></td>
+                            <td><input type="submit" value="Submit" class="form-control btn w-25 btn-primary"></td>
                         </tr>
                     </table>
                 </form>

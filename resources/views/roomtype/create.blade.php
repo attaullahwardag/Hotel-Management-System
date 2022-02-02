@@ -26,7 +26,7 @@
             <div class="table-responsive ">
                 <form method="POST" enctype="multipart/form-data" action="{{ url('admin/roomtype') }}">
                     @csrf
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Title</th>
                             <td> <input type="text" name="title" id="" class="form-control"> </td>
@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <th>Images</th>
-                            <td> <input type="file" name="imgs[]" multiple class="form-control"> </td>
+                            <td> <input type="file" name="imgs[]" multiple > </td>
                         </tr>
                         <tr>
                             <th>Details</th>

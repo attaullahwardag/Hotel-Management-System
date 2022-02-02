@@ -16,7 +16,7 @@
             <div class="table-responsive">
                 <form method="POST" action="{{ url('admin/rooms') }}">
                     @csrf
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Title: </th>
                             <td> <input type="text" name="title" id="" class="form-control"> </td>
@@ -33,8 +33,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Action</th>
-                            <td><input type="submit" value="Submit" class="form-control btn btn-primary"></td>
+                            <th></th>
+                            <td><input type="submit" value="Submit" class="form-control w-25 btn btn-primary"></td>
                         </tr>
                     </table>
                 </form>
