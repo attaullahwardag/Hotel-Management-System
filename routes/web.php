@@ -50,6 +50,8 @@ Route::get('admin/department/{id}/delete',[StaffDepartment::class,'destroy']);
 Route::resource('admin/department',StaffDepartment::class);
 
 //Staff payments Routes
+Route::get('admin/staff/payment/{id}/{staff_id}/delete',[StaffController::class,'delete_payment']);
+Route::get('admin/staff/allpayments/{id}',[StaffController::class,'all_payments']);
 Route::get('admin/staff/payment/{id}/add',[StaffController::class,'add_payment']);
 Route::post('admin/staff/payment/{id}',[StaffController::class,'save_payment']);
 

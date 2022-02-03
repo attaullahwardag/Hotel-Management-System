@@ -140,6 +140,15 @@ class StaffController extends Controller
         $data->amount = $request->amount;
         $data->payment_date = $request->payment_date;
         $data->save();
-        return redirect('admin/staff/payment/'.$staf_id.'/add')->with('success','Payment successfuly made');
+        return redirect('admin/staff/payment/'.$staf_id.'/add')->with('success','Payment successfuly made.');
+    }
+    public function all_payments($staf_id){
+        $data = StaffPayment::where('Staff_id',$staf_id)->get();
+        $staffData = Staff::find($staf_id);
+        return view ('staffpayment.index',['staff_id'=>$staf_id,'data'=>$data, 'staff'=>$staffData]);
+    }
+    public function delete_payment($id, $staff_id){
+        StaffPayment::where('id',$id)->delete();
+        return redirect('admin/staff/allpayments/'.$staff_id)->with('success','Payment Deleted Successfuly.');
     }
 }
