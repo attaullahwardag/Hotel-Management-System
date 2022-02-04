@@ -15,13 +15,14 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Make Booking
-                <a href="{{ url('admin/rooms') }}" class="btn btn-success float-right">View All</a>
+                <a href="{{ url('admin/booking') }}" class="btn btn-success float-right">View All</a>
             </h6>
         </div>
         <div class="card-body">
             @if (Session::has('success'))
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
+            <p class="text-center arooms"></p>
             <div class="table-responsive">
                 <form method="POST" action="{{ url('admin/booking') }}">
                     @csrf
@@ -48,7 +49,7 @@
                             <td><input type="date" name="checkout_date" class="form-control" ></td>
                         </tr>
                         <tr>
-                            <th>Available Rooms <sup class="text-danger">*</sup></th>
+                            <th>Available Rooms <sup class="text-danger">*</sup> </th>
                             <td> 
                                 <select name="room_id" id="" class="form-control roomlist">
                                     
@@ -86,13 +87,24 @@
                 dataType:"json",
                 beforeSend:function(){
                     $(".roomlist").html('<option> Loading....... </option>');
+                    $(".arooms").text('loadinng...');
                 },
                 success:function(res){
                     var _html = "";
-                    $.each(res.data,function(index,row){
-                        _html+='<option value="'+row.id+'">'+row.title+"</option>";
-                    });
-                    $(".roomlist").html(_html);
+                    var _htmlNull = "";
+                    if(res.data.length > 0){
+                        $.each(res.data,function(index,row){  
+                            _html+='<option value="'+row.id+'">'+row.title+"</option>";
+                        });
+                        $(".roomlist").html(_html);
+                        $(".arooms").addClass('text-success');
+                        $(".arooms").text(res.data.length+' Rooms are Available on '+_checkin_date);
+                    }else{
+                        $(".roomlist").html("<option>Sorry No Room Available </option>");
+                        $(".arooms").addClass('text-danger');
+                        $(".arooms").text('Sorry No Rooms Available on '+_checkin_date);
+
+                    }
                 },
             });
         });

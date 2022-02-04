@@ -16,6 +16,8 @@ class BookingController extends Controller
     public function index()
     {
         //
+        $data = Booking::all();
+        return view('booking.index',['data'=>$data]);
     }
 
     /**
@@ -41,6 +43,7 @@ class BookingController extends Controller
         $request->validate([
             'checkin_date' => 'required',
             'checkout_date' => 'required',
+            'room_id' => 'required | integer',
             'total_children' => 'required',
             'total_adults'  => 'required'
         ]);
