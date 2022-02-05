@@ -92,16 +92,20 @@
                 success:function(res){
                     var _html = "";
                     var _htmlNull = "";
+                    console.log(res.data);
                     if(res.data.length > 0){
                         $.each(res.data,function(index,row){  
+                            
                             _html+='<option value="'+row.id+'">'+row.title+"</option>";
                         });
-                        $(".roomlist").html(_html);
+                        $(".arooms").removeClass('text-danger');
                         $(".arooms").addClass('text-success');
+                        $(".roomlist").html(_html);
                         $(".arooms").text(res.data.length+' Rooms are Available on '+_checkin_date);
                     }else{
-                        $(".roomlist").html("<option>Sorry No Room Available </option>");
+                        $(".arooms").removeClass('text-success');
                         $(".arooms").addClass('text-danger');
+                        $(".roomlist").html("<option>Sorry No Room Available </option>");
                         $(".arooms").text('Sorry No Rooms Available on '+_checkin_date);
 
                     }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>AkTech HMS - 1</title>
+    <title> HMS </title>
     @if (!Session::has('adminData'))
         <script text="text/javascript">
             window.location.href="{{ url('admin/login') }}";
@@ -31,7 +31,7 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-hotel"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> AkTech <sup>HMS</sup></div>
+                <div class="sidebar-brand-text mx-3"> {{ config('app.name') }} <sup>0.1</sup></div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -62,7 +62,7 @@
              <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/rooms*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-bed"></i>
                     <span>Rooms</span>
                 </a>
                 <div id="collapseTwo" class="collapse @if(request()->is('admin/rooms*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -90,7 +90,7 @@
              <li class="nav-item">
                  <a class="nav-link @if(!request()->is('admin/department*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsedepartment"
                      aria-expanded="true" aria-controls="collapseone">
-                     <i class="fas fa-fw fa-users"></i>
+                     <i class="fas fa-door-closed"></i>
                      <span>Department</span>
                  </a>
                  <div id="collapsedepartment" class="collapse @if(request()->is('admin/department*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -119,7 +119,7 @@
              <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/booking*')) collapsed @endif " href="#" data-toggle="collapse" data-target="#collapsebooking"
                     aria-expanded="true" aria-controls="collapseone">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-calendar-check"></i>
                     <span>Bookings</span>
                 </a>
                 <div id="collapsebooking" class="collapse @if(request()->is('admin/booking*')) show @endif " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -202,7 +202,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; AkTech HMS-1 2020</span>
+                        <span>Copyright &copy; {{ config('app.name') }} 2020</span>
                     </div>
                 </div>
             </footer>

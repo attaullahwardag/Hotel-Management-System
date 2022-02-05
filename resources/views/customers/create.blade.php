@@ -2,7 +2,6 @@
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
-   
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -32,7 +31,12 @@
                         </tr>
                         <tr>
                             <th>Photo</th>
-                            <td> <input type="file" name="photo" ></td>
+                            <td> 
+                                <div class="d-flex border rounded justify-content-between h-50 ">
+                                    <input  class="my-auto ml-2" type="file" name="photo"  onchange="loadFile(event)" > 
+                                    <img id="output" width="60px" class="rounded m-2" height="60" />
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <th>Address</th>
@@ -49,4 +53,15 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+@section('scripts')
+    <script type="text/javascript">
+        var image = document.getElementById('output');
+            image.src = "{{ asset('img/noimg.jpeg') }}"
+        var loadFile = function(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+           
+        };
+    </script>
+@endsection
 @endsection

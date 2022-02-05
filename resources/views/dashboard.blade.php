@@ -43,7 +43,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ App\Models\Room::count() }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-bed fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="fas fa-users fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ App\Models\Staff::count() }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="fas fa-users fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
