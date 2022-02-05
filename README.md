@@ -11,9 +11,10 @@ Javascript, HTML, CSS, PHP, Laravel, Mysql, Boostrap 5
 
 ## Features
 
-- RoomTypes and Rooms Crud admin pannel
-- Customer registration, Room Booking and Payment Option
-- Staff and Expese management 
-- CMS
+- Admin can Add staff, Customer, RoomsType, Room and Bookings from admin Pannel
+- RoomTypes crud 
+- Room Crud
+- Customer Crud
+- Booking Check Rooms Availabilty in Date range (Checkin Date <--> Checkout Date).
 
 
