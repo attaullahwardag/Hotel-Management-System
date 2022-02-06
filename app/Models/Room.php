@@ -9,7 +9,15 @@ class Room extends Model
 {
     use HasFactory;
 
-    public function Roomtype(){
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = ['title'];
+
+    public function Roomtype()
+    {
         return $this->belongsTo(RoomType::class,'room_type_id');
     }
 }
