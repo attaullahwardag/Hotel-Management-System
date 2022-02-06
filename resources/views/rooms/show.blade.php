@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Rooms</h1>
-   
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -19,15 +19,15 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th> Title</th>  
-                            <th> Room Type </th> 
+                            <th> Title</th>
+                            <th> Room Type </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $data->id }}</td>
-                            <td> {{ $data->title }} </td>
-                            <td> {{ $data->Roomtype->title }} </td>
+                            <td>{{ $room->id }}</td>
+                            <td> {{ $room->title }} </td>
+                            <td> {{ $room->Roomtype->title }} </td>
                         </tr>
                     </tbody>
                 </table>

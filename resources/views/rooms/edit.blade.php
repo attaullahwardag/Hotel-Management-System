@@ -14,13 +14,13 @@
                 <p class="text-success"> {{ Session('success') }}</p>
             @endif
             <div class="table-responsive">
-                <form method="POST" action="{{ url('admin/rooms/'.$data->id) }}">
+                <form method="POST" action="{{ url('admin/rooms/'.$room->id) }}">
                     @csrf
                     @method('put')
                     <table class="table table-borderless" id="dataTable" width="100%" cellspacing="0">
                         <tr>
                             <th>Title</th>
-                            <td> <input type="text" value="{{ $data->title }}" name="title" id="" class="form-control"> </td>
+                            <td> <input type="text" value="{{ $room->title }}" name="title" id="" class="form-control"> </td>
                         </tr>
                         <tr>
                             <th>Room Type: </th>
@@ -28,7 +28,7 @@
                                 <select name="roomtype" id="" class="form-control">
                                     <option value="0">---Select---</option>
                                     @foreach ($roomtypes as $rt )
-                                        <option @if ($data->room_type_id == $rt->id)
+                                        <option @if ($room->room_type_id == $rt->id)
                                           selected  @endif value="{{ $rt->id }}">{{ $rt->title }}</option>
                                     @endforeach
                                 </select>
